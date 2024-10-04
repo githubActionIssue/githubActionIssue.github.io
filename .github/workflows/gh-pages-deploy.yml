@@ -24,9 +24,7 @@ jobs:
 
       - name: Fetch Pinned Repositories from GitHub
         env:
-
           MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Reference your custom secret name
-
         run: node fetch-pinned-repos.js
 
       - name: Generate HTML from Template
@@ -35,7 +33,7 @@ jobs:
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'quantumAbraham'
-          git config --global user.email 'charlesogolla2018@gmail.com '
+          git config --global user.email 'charlesogolla2018@gmail.com'
           git add index.html
           git commit -m "Update generated index.html with pinned repositories"
-          git push origin main
+          git push https://${{ secrets.PAT_TOKEN }}@github.com/githubActionIssue/githubActionIssue.github.io.git main
