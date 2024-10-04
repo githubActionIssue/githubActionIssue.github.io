@@ -6,7 +6,7 @@
   const GITHUB_TOKEN = process.env.MY_GITHUB_TOKEN;
   if (!GITHUB_TOKEN) {
     throw new Error('MY_GITHUB_TOKEN is not defined');
-  }
+  } 
 
 const ORG_NAME = 'githubActionIssue'; 
 

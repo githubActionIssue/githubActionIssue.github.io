@@ -25,7 +25,7 @@ jobs:
       - name: Fetch Pinned Repositories from GitHub
         env:
 
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Reference your custom secret name
+          MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Reference your custom secret name
 
         run: node fetch-pinned-repos.js
 
