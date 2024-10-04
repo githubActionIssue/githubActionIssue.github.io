@@ -18,10 +18,17 @@ async function getPinnedRepos() {
   });
 
   const repos = await response.json();
-  const pinnedRepos = repos.filter(repo => repo.pinned);
+  
+  // Log the repos to see the response structure
+  console.log(repos);  // Add this line for debugging
 
-  // Write the data to a JSON file to be used later
-  fs.writeFileSync('pinned-repos.json', JSON.stringify(pinnedRepos, null, 2));
+  // Check if repos is an array before filtering
+  if (Array.isArray(repos)) {
+    const pinnedRepos = repos.filter(repo => repo.pinned);
+    fs.writeFileSync('pinned-repos.json', JSON.stringify(pinnedRepos, null, 2));
+  } else {
+    throw new Error('Unexpected response from GitHub API: expected an array of repositories');
+  }
 }
 
 getPinnedRepos();
