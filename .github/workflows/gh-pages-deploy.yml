@@ -23,9 +23,11 @@ jobs:
         run: npm install
 
       - name: Fetch Pinned Repositories from GitHub
-        run: node fetch-pinned-repos.js
         env:
+
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Reference your custom secret name
+
+        run: node fetch-pinned-repos.js
 
       - name: Generate HTML from Template
         run: node generate-html.js
