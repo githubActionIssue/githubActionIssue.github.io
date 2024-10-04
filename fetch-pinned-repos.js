@@ -2,7 +2,7 @@
   const fetch = (await import('node-fetch')).default;
   const fs = require('fs');
   // Use GitHub token from environment variables
-  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+const GITHUB_TOKEN = process.env.MY_GITHUB_TOKEN;
   if (!GITHUB_TOKEN) {
     throw new Error('GITHUB_TOKEN is not defined');
   }
