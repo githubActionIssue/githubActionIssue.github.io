@@ -1,0 +1,37 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # You can change this to any branch you want to trigger on
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js (required for templating and API requests)
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Fetch Pinned Repositories from GitHub
+        run: node fetch-pinned-repos.js
+
+      - name: Generate HTML from Template
+        run: node generate-html.js
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'quantumAbraham'
+          git config --global user.email 'charlesogolla2018@gmail.com '
+          git add index.html
+          git commit -m "Update generated index.html with pinned repositories"
+          git push origin main
