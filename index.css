@@ -1,0 +1,125 @@
+html {
+	box-sizing: border-box;
+	font-size: 16px;
+	width: 100%;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	padding: 1.25rem 3rem;
+	background-color: #f8f9fa;
+	color: #333;
+	max-width: 950px;
+	margin: 0 auto;
+}
+
+h1 {
+	font-size: 2rem;
+	margin-bottom: 1.25rem;
+}
+
+
+.github-corner {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+p {
+	margin-bottom: 1.25rem;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+#project-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+	gap: 1.25rem;
+	padding: 0;
+}
+
+#project-list li {
+	background: #eeda4e;
+	border-radius: 0.5rem;
+	box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#project-list li:hover {
+	transform: translateY(-0.3125rem);
+	box-shadow: 0 0.375rem 0.75rem rgba(0, 0, 0, 0.2);
+	background: #ddd;
+}
+
+#project-list li > a {
+	display: block;
+	position: relative;
+	padding: 1.25rem;
+	border-radius: 0.5rem;
+	height: 100%;
+}
+
+#project-list h3 {
+	font-size: 1.4rem;
+	margin-top: 0.25rem;
+	margin-bottom: 0.625rem;
+	text-decoration: none;
+	color: #000;
+}
+
+#project-list .description {
+	font-size: 1.1rem;
+	color: #555;
+	margin-bottom: 1.625rem;
+	line-height: 1.4;
+}
+
+#project-list .link {
+	color: #522403;
+	position: absolute;
+	font-style: italic;
+	text-decoration: underline;
+	font-size: 1.1rem;
+	line-height: 1.1rem;
+	bottom: 0.8rem;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#project-list .link:before {
+	content: "";
+	display: inline-block;
+	position: relative;
+	top: 0.1rem;
+	width: 1.1rem;
+	height: 1.1rem;
+	margin-right: 0.2rem;
+	background-image: url(github-mark.svg);
+	background-position: 0;
+	background-size: 1.1rem;
+	background-repeat: no-repeat;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 2.5rem;
+	margin-bottom: 1.25rem;
+}
+
+/* github corner badge */
+.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
