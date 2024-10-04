@@ -1,5 +1,6 @@
-const fetch = require('node-fetch');
-const fs = require('fs');
+(async () => {
+  const fetch = (await import('node-fetch')).default;
+  const fs = require('fs');
 const GITHUB_TOKEN = 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;
 const ORG_NAME = 'githubActionIssue'; 
 
@@ -18,3 +19,4 @@ async function getPinnedRepos() {
 }
 
 getPinnedRepos();
+})();   
