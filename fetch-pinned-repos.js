@@ -1,7 +1,12 @@
 (async () => {
   const fetch = (await import('node-fetch')).default;
   const fs = require('fs');
-const GITHUB_TOKEN = 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;
+  // Use GitHub token from environment variables
+  const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+  if (!GITHUB_TOKEN) {
+    throw new Error('GITHUB_TOKEN is not defined');
+  }
+
 const ORG_NAME = 'githubActionIssue'; 
 
 async function getPinnedRepos() {
