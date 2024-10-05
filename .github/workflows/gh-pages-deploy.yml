@@ -5,7 +5,8 @@ on:
     branches:
       - main # You can change this to any branch you want to trigger on
   workflow_dispatch: # Allows manual triggering
-
+env:
+  MY_GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}  # Reference your custom secret name
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,7 +19,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-
+=
       - name: Install Dependencies
         run: npm install
 
@@ -38,4 +39,4 @@ jobs:
           git commit -m "Update generated index.html with pinned repositories"
           git remote rm origin
           git remote add origin https://${{ secrets.PAT_TOKEN }}@github.com/githubActionIssue/githubActionIssue.github.io.git
-          git push https://${{ secrets.PAT_TOKEN }}@github.com/githubActionIssue/githubActionIssue.github.io.git main
+          git push https://${{ secrets.MY_GITHUB_TOKEN }}@github.com/githubActionIssue/githubActionIssue.github.io.git main
